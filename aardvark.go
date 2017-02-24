@@ -205,6 +205,7 @@ func Open(port int) (*Device, error) {
 }
 
 type AardvarkVersion = C.AardvarkVersion
+
 // type AardvarkVersion struct {
 // 	Software      uint16
 // 	Firmware      uint16
@@ -215,6 +216,7 @@ type AardvarkVersion = C.AardvarkVersion
 // }
 
 type AardvarkExt = C.AardvarkExt
+
 // type AardvarkExt struct {
 // 	Version  AardvarkVersion // Version matrix
 // 	Features int32           // Features of this device
@@ -281,6 +283,7 @@ func (d *Device) UniqueID() uint32 {
 }
 
 type LogIO = C.int
+
 var (
 	LogStdout LogIO = LogIO(C.AA_LOG_STDOUT)
 	LogStderr LogIO = LogIO(C.AA_LOG_STDERR)
@@ -296,7 +299,6 @@ var (
 
 // 	m := C.CString("w")
 // 	defer C.free(unsafe.Pointer(m))
-
 
 // 	fp := C.open(f, C.int(C.O_WRONLY | C.O_CREAT | C.O_TRUNC))
 // 	if fp == -1 {
@@ -320,6 +322,7 @@ func (d *Device) Version() (v *AardvarkVersion, err error) {
 
 // AardvarkConfig
 type AardvarkConfig = C.AardvarkConfig
+
 var (
 	ConfigGpioOnly AardvarkConfig = C.AA_CONFIG_GPIO_ONLY
 	ConfigSpiGpio  AardvarkConfig = C.AA_CONFIG_SPI_GPIO
